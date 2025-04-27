@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+    <persistence-unit name="hello">
+        <properties>
+            <!-- 필수 속성 -->
+            <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="jakarta.persistence.jdbc.user" value="sa"/>
+            <property name="jakarta.persistence.jdbc.password" value=""/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/jpapractice"/>
+<!--H2 DB에 테이블 처음 직접 생성할 때는 tcp://localhost/ 이부분 빼고 시험 생성 뒤 붙이고 연결 확인하는 것 잊지 말기-->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+
+            <!-- 옵션 -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_sql_comments"  value="true"/>
+<!--            <property name="hibernate.hbm2ddl.auto" value="create" />-->
+<!--create로 해놓으면 main 함수를 재실행시킬 때마다 새로운 Member 테이블이 만들어진다.-->
+<!--처음 DB에 테이블 만들때는 create 활성화시켜야 됨.-->
+<!--            <property name="hibernate.hbm2ddl.auto" value="update" />-->
+<!--            이거 관련 설명은 DDL 자동 실행 관련 섹션 5 슬라이드 참조-->
+        </properties>
+    </persistence-unit>
+
+</persistence>
